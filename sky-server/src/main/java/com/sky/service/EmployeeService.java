@@ -12,5 +12,5 @@ public interface EmployeeService {
      */
     Employee login(EmployeeLoginDTO employeeLoginDTO);
 
-    void save(EmployeeLoginDTO employeeLoginDTO);
+    void save(Employee employee);
 }
