@@ -11,4 +11,8 @@ sky:
     access-key-secret: ca78i7I4jr5ZyWXfjE3kzrMSCxhrWv
     bucket-name: bucketname-tale
     endpoint: oss-cn-beijing.aliyuncs.com
-
+  redis:
+    host: 192.168.32.129
+    port: 6379
+    password: wyt516817
+    database: 1
