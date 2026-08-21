@@ -40,10 +40,20 @@ sky:
     admin-ttl: 7200000
     # 设置前端传递过来的令牌名称
     admin-token-name: token
+    #用户jwt密钥
+    user-secret-key: itheima
+    #jwt过期时间
+    user-ttl: 7200000
+    #令牌名称
+    user-token-name: authentication
+
   alioss:
     endpoint:${sky.alioss.endpoint}
     access-key-id:${sky.alioss.access-key-id}
     aceess-key-secret:${sky.alioss.aceess-key-secret}
     bucket-name:${sky.alioss.bucket-name}
+  wechat:
+    secret: ${sky.wechat.secret}
+    appid: ${sky.wechat.appid}
 
 
