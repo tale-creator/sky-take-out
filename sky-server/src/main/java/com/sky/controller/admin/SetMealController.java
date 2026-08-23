@@ -3,6 +3,7 @@ package com.sky.controller.admin;
 import com.sky.dto.DishDTO;
 import com.sky.dto.SetmealDTO;
 import com.sky.dto.SetmealPageQueryDTO;
+import com.sky.entity.Setmeal;
 import com.sky.mapper.SetMealDishMapper;
 import com.sky.result.PageResult;
 import com.sky.result.Result;
@@ -12,6 +13,7 @@ import com.sky.vo.SetmealVO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -27,6 +29,7 @@ public class SetMealController {
 
     @PostMapping
     @ApiOperation("新增菜品")
+    @CacheEvict(cacheNames = "setmealcache",key = "#setmealDTO.categoryId")
     public Result save(@RequestBody SetmealDTO setmealDTO) {
         setMealService.save(setmealDTO);
         return Result.success();
@@ -41,6 +44,7 @@ public class SetMealController {
 
     @PutMapping
     @ApiOperation("修改套餐")
+    @CacheEvict(allEntries = true,cacheNames = "setmealcache")
     public Result update(@RequestBody SetmealDTO setmealDTO){
         setMealService.update(setmealDTO);
         return Result.success();
@@ -48,6 +52,7 @@ public class SetMealController {
 
     @DeleteMapping
     @ApiOperation("批量删除套餐")
+    @CacheEvict(allEntries = true,cacheNames = "setmealcache")
     public Result delete(@RequestParam List<Long> ids){
         setMealService.deleteBatch(ids);
         return Result.success();
@@ -73,6 +78,7 @@ public class SetMealController {
      */
     @PostMapping("/status/{status}")
     @ApiOperation("套餐起售停售")
+    @CacheEvict(cacheNames = "setmealcache",allEntries = true)
     public Result startOrStop(@PathVariable Integer status, Long id) {
         setMealService.startOrStop(status, id);
         return Result.success();

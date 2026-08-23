@@ -21,6 +21,7 @@ import java.util.HashMap;
 @RestController
 @RequestMapping("/user/user")
 @Api("用户端用户接口")
+
 public class UserController {
 
     @Autowired
