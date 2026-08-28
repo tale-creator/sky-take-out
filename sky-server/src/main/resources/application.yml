@@ -48,17 +48,17 @@ sky:
     user-token-name: authentication
 
   alioss:
-    endpoint:${sky.alioss.endpoint}
-    access-key-id:${sky.alioss.access-key-id}
-    aceess-key-secret:${sky.alioss.aceess-key-secret}
-    bucket-name:${sky.alioss.bucket-name}
+    endpoint: ${sky.alioss.endpoint}
+    access-key-id: ${sky.alioss.access-key-id}
+    access-key-secret: ${sky.alioss.access-key-secret}
+    bucket-name: ${sky.alioss.bucket-name}
   wechat:
     secret: ${sky.wechat.secret}
     appid: ${sky.wechat.appid}
   shop:
-    address: 北京市海淀区上地十街10号
+    address: ${sky.shop.address}
   baidu:
-    ak: ${sENdH9a2PZL8Irj2bNmUEkSKymLYcNwy}
+    ak: ${sky.baidu.ak}
 
 
 

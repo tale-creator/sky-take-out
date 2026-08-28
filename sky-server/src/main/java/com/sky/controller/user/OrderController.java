@@ -42,6 +42,7 @@ public class OrderController {
     @ApiOperation("查询历史订单")
     public Result<PageResult> historyOrders(OrdersPageQueryDTO ordersPageQueryDTO) {
         PageResult pageResult = orderservice.historyOrders(ordersPageQueryDTO);
+        System.out.println("执行了方法");
         return Result.success(pageResult);
     }
 
