@@ -24,7 +24,7 @@ public class OrderTask {
     @Scheduled(cron = "0 0/1 * * * ?")
     public void ordertimeouttask(){
         // 计算15分钟前的时间点
-        log.info("订单超时取消任务开始执行");
+
         LocalDateTime time = LocalDateTime.now().minusMinutes(15);
         // 查询状态为待付款且下单时间早于15分钟前的订单
         List<Orders> orderList = orderMapper.getByStatusAndOrderTime(Orders.PENDING_PAYMENT, time);
@@ -48,7 +48,7 @@ public class OrderTask {
      */
     @Scheduled(cron = "0 0 1 * * ?")
     public void deliveryTask(){
-        log.info("订单派送中取消任务开始执行");
+
         // 今天凌晨的时间点
         LocalDateTime time = LocalDateTime.now().withHour(0).withMinute(0).withSecond(0);
         // 查询状态为派送中且下单时间早于今天凌晨的订单（即昨天及更早的派送中订单）
