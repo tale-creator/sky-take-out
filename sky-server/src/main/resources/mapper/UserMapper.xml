@@ -17,4 +17,16 @@
         )
     </insert>
 
+    <select id="getByMap" resultType="java.lang.Integer">
+        select count(id) from user
+        <where>
+            <if test="begintime != null">
+                and create_time &gt;= #{begintime}
+            </if>
+            <if test="endtime != null">
+                and create_time &lt;= #{endtime}
+            </if>
+        </where>
+    </select>
+
 </mapper>
